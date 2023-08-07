@@ -13,7 +13,9 @@
             "SSD_DEFAULT_PORT": "server",
             "webAppMountpoint": "both",
             "CLOCK_TOLERANCE": "server",
-            "NGFORAGE_MOBILE_DRIVER": "client"
+            "NGFORAGE_MOBILE_DRIVER": "client",
+            "DB_USERNAME": "server",
+            "DB_PASSWORD": "server"
         }
     },
     "dev": {
@@ -30,7 +32,9 @@
             "SSD_DEFAULT_PORT": "8081",
             "webAppMountpoint": "web",
             "CLOCK_TOLERANCE": "5",
-            "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB"
+            "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB",
+            "DB_USERNAME": "postgres",
+            "DB_PASSWORD": "rcridertn43"
         }
     },
     "prod": {
@@ -47,7 +51,9 @@
             "SSD_DEFAULT_PORT": "8081",
             "webAppMountpoint": "web",
             "CLOCK_TOLERANCE": "5",
-            "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB"
+            "NGFORAGE_MOBILE_DRIVER": "INDEXED_DB",
+            "DB_USERNAME": "postgres",
+            "DB_PASSWORD": "rcridertn43"
         }
     }
 }

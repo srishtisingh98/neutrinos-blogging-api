@@ -11,5 +11,44 @@
                 "post_api"
             ]
         }
+    },
+    "/add-post": {
+        "post": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "post_api"
+            ]
+        }
+    },
+    "/update-post": {
+        "put": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "post_api"
+            ]
+        }
+    },
+    "/delete-post": {
+        "delete": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "post_api"
+            ]
+        }
     }
 }
