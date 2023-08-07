@@ -1,0 +1,14 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "type": "tab",
+        "createdDate": "2023-08-07T16:18:15.776Z",
+        "label": "comments",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "comments",
+        "relativeParentPath": "comments"
+    }
+]
