@@ -123,7 +123,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.response = {\n    user: 'hari'\n}",
+        "script": "bh.response = {\n    user: 'user'\n}",
         "functionName": "sd_H3ISG4SKSbUaQQSn",
         "category": "Function",
         "x": 400,
