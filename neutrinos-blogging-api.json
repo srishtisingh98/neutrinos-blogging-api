@@ -1,0 +1,13 @@
+{
+    "displayName": "neutrinos-blogging-api",
+    "appName": "neutrinos-blogging-api",
+    "description": "backend",
+    "lastModified": "2023-08-07T07:28:42.087Z",
+    "imgSourcePath": "",
+    "version": "1.0.0",
+    "appType": "apiOnly",
+    "templateName": "blank",
+    "createDate": "2023-08-07T07:28:39.553Z",
+    "analyticsId": "d0da4d90-371a-0e10-a811-13c089e2a631",
+    "createdStudioVersion": "9.1.4"
+}

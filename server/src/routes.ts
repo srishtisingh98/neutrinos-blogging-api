@@ -1,0 +1,9 @@
+//CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-login-SSD_SERVICE_ID_sd_2NWhw0N4zVsBdyXO
+import { login as SSD_SERVICE_ID_sd_2NWhw0N4zVsBdyXO } from './sd-services/login/login';
+
+export const UserRoutes = [
+    //CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY
+//CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY-login-SSD_SERVICE_ID_sd_2NWhw0N4zVsBdyXO
+SSD_SERVICE_ID_sd_2NWhw0N4zVsBdyXO,
+];
