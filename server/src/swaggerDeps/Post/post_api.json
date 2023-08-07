@@ -1,0 +1,15 @@
+{
+    "/get-post": {
+        "get": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "post_api"
+            ]
+        }
+    }
+}
