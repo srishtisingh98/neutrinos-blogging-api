@@ -412,7 +412,7 @@ export class post_api {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = undefined;
+      let params = bh.params;
       params = params ? params : [];
       bh.result = await new GenericRDBMSOperations().executeSQL(
         connectionName,
