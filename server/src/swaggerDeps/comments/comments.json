@@ -1,0 +1,28 @@
+{
+    "/post_comment": {
+        "post": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "comments"
+            ]
+        }
+    },
+    "/get_comments": {
+        "post": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "comments"
+            ]
+        }
+    }
+}

@@ -88,6 +88,7 @@
         "neutrinos-mongodb-session-store": "0.0.2-beta.1",
         "nodemailer": "6.7.7",
         "openid-client": "5.1.8",
+        "pg": "8.7.3",
         "poplib": "0.1.7",
         "prom-client": "14.1.0",
         "query-string": "7.1.1",
@@ -99,8 +100,7 @@
         "typeorm-static": "1.1.1",
         "winston": "3.8.1",
         "winston-daily-rotate-file": "4.7.1",
-        "xml2js": "0.4.23",
-        "pg": "8.7.3"
+        "xml2js": "0.4.23"
     },
     "scripts": {
         "tsc": "tsc",

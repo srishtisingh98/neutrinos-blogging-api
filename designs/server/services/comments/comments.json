@@ -1,0 +1,388 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "type": "tab",
+        "createdDate": "2023-08-07T16:18:15.776Z",
+        "label": "comments",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "comments",
+        "relativeParentPath": "comments"
+    },
+    {
+        "id": "sd_2koPyvEqKcutDfwu",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "",
+        "path": "post_comment",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 85,
+        "y": 160,
+        "wires": [
+            [
+                "sd_XgKbTH3Uw42fbcla"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "comments",
+        "functionName": "sd_2koPyvEqKcutDfwu"
+    },
+    {
+        "id": "sd_KkrGyBe3f84o1w2n",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh",
+            "value": "response",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.response",
+            "send": "bh.response"
+        },
+        "dataModelIsArray": false,
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_KkrGyBe3f84o1w2n",
+        "category": "HTTP",
+        "x": 745,
+        "y": 160,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "comments",
+        "generated": true
+    },
+    {
+        "id": "sd_XgKbTH3Uw42fbcla",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.query = 'INSERT INTO \"Comment\" (post_id, user_id, comment_text) VALUES ($1,$2,$3)';\nconsole.log(bh.query);\nbh.params = [\n    bh.input.body.post_id,\n    bh.input.body.user_id,\n    bh.input.body.comment_text\n] \nconsole.log(bh.params);",
+        "functionName": "sd_XgKbTH3Uw42fbcla",
+        "category": "Function",
+        "x": 300,
+        "y": 160,
+        "wires": [
+            [
+                "sd_irSlrnmEYKPfDvXI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "comments",
+        "generated": true
+    },
+    {
+        "id": "sd_irSlrnmEYKPfDvXI",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_C9OeZH1l3ceoDI6p",
+        "resultMap": {
+            "type": "bh",
+            "value": "result"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh",
+            "value": "query"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "paramMappingObj": {
+            "type": "bh",
+            "value": "params"
+        },
+        "dbType": "postgres",
+        "functionName": "sd_irSlrnmEYKPfDvXI",
+        "category": "Storage",
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "sd_pbbkekBnaclcc4NL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "comments",
+        "generated": true
+    },
+    {
+        "id": "sd_pbbkekBnaclcc4NL",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.result)\nbh.response = {\n    message:\"comment successfully\"\n}",
+        "functionName": "sd_pbbkekBnaclcc4NL",
+        "category": "Function",
+        "x": 585,
+        "y": 160,
+        "wires": [
+            [
+                "sd_KkrGyBe3f84o1w2n"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "comments",
+        "generated": true
+    },
+    {
+        "id": "sd_eCj5unteaOWazE8n",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "",
+        "path": "get_comments",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 100,
+        "y": 340,
+        "wires": [
+            [
+                "sd_Daq7cHh1PyLpPMyl"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "comments",
+        "functionName": "sd_eCj5unteaOWazE8n"
+    },
+    {
+        "id": "sd_p9Z6UTAi3o75IsLN",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh",
+            "value": "response",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.response",
+            "send": "bh.response"
+        },
+        "dataModelIsArray": false,
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_p9Z6UTAi3o75IsLN",
+        "category": "HTTP",
+        "x": 745,
+        "y": 340,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "comments",
+        "generated": true
+    },
+    {
+        "id": "sd_Daq7cHh1PyLpPMyl",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.query = 'SELECT \"User\".username, \"Comment\".comment_text, \"Comment\".comment_date FROM \"Comment\" JOIN \"User\" ON \"Comment\".user_id = \"User\".user_id WHERE \"Comment\".post_id = $1';\nconsole.log(bh.input.body);\nbh.params = [\n    bh.input.body.post_id\n];\nconsole.log(bh.params);\n",
+        "functionName": "sd_Daq7cHh1PyLpPMyl",
+        "category": "Function",
+        "x": 265,
+        "y": 340,
+        "wires": [
+            [
+                "sd_qo4IxuHC7XKqWOwH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "comments",
+        "generated": true
+    },
+    {
+        "id": "sd_qo4IxuHC7XKqWOwH",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_C9OeZH1l3ceoDI6p",
+        "resultMap": {
+            "type": "bh",
+            "value": "result"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh",
+            "value": "query"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "paramMappingObj": {
+            "type": "bh",
+            "value": "params"
+        },
+        "dbType": "postgres",
+        "functionName": "sd_qo4IxuHC7XKqWOwH",
+        "category": "Storage",
+        "x": 465,
+        "y": 340,
+        "wires": [
+            [
+                "sd_EjxyoWpcujPnF2ZA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "comments",
+        "generated": true
+    },
+    {
+        "id": "sd_EjxyoWpcujPnF2ZA",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_2vrYmZDBSgx8xHIt",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.result);\nbh.response = {\n    comments:bh.result\n}",
+        "functionName": "sd_EjxyoWpcujPnF2ZA",
+        "category": "Function",
+        "x": 605,
+        "y": 340,
+        "wires": [
+            [
+                "sd_p9Z6UTAi3o75IsLN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "comments",
+        "generated": true
+    }
+]
