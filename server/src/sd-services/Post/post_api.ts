@@ -527,7 +527,7 @@ export class post_api {
     );
     try {
       bh.query =
-        'INSERT INTO "Post" (user_id, post_title, post_content, post_date, post_category_id) VALUES($1, $2, $3, current_timestamp, $4)';
+        'INSERT INTO "Post" (user_id, post_title, post_content, post_date, post_category_id) VALUES($1, $2, $3, current_timestamp, (SELECT category_id FROM "Categories" WHERE category_name = $4))';
       bh.params = [
         bh.input.body.user_id,
         bh.input.body.post_title,
@@ -664,8 +664,14 @@ export class post_api {
       parentSpanInst
     );
     try {
-      console.log(bh.input.user_id);
-      console.log(bh.input.post_title);
+      if (!bh.input.post_content || bh.input.post_content == '') {
+        bh.status = 'false';
+        bh.result = { message: 'Please provide content for the blog' };
+      } else if (!bh.input.post_title || bh.input.post_title) {
+        bh.status = 'false';
+        bh.result = { message: 'Please provide title for blog' };
+      }
+
       this.tracerService.sendData(spanInst, bh);
       //appendnew_next_sd_wJFgdyoqRHeb9aSX
       return bh;
@@ -766,9 +772,9 @@ export class post_api {
       bh.params = [
         bh.input.body.post_title,
         bh.input.body.post_content,
-        bh.input.post_id,
+        bh.input.body.post_id,
       ];
-
+      console.log(bh.params);
       this.tracerService.sendData(spanInst, bh);
       bh = await this.sd_QS5YOum07wElLYeb(bh, parentSpanInst);
       //appendnew_next_sd_2pemBV0W0NOzM9oC
@@ -832,7 +838,9 @@ export class post_api {
       parentSpanInst
     );
     try {
+      console.log(bh.result);
       bh.result = { message: 'Blog updated successfuly' };
+
       this.tracerService.sendData(spanInst, bh);
       await this.sd_hnFMdAxBj7QA7kX0(bh, parentSpanInst);
       //appendnew_next_sd_5TTFyKXjWNbR10aw
@@ -896,6 +904,10 @@ export class post_api {
       parentSpanInst
     );
     try {
+      if (!bh.input.post_id || bh.input.post_id == '') {
+        bh.input.status = 'false';
+        bh.input.result = { message: 'Please provide an ID for the blog' };
+      }
       this.tracerService.sendData(spanInst, bh);
       //appendnew_next_sd_1yaaInAc7RM8osXq
       return bh;
@@ -1119,6 +1131,10 @@ export class post_api {
       parentSpanInst
     );
     try {
+      if (!bh.input.post_id || bh.input.post_id == '') {
+        bh.input.status = 'false';
+        bh.input.result = { message: 'Please provide an ID for the blog' };
+      }
       this.tracerService.sendData(spanInst, bh);
       //appendnew_next_sd_aRZ5YB3sQqKVzWRZ
       return bh;

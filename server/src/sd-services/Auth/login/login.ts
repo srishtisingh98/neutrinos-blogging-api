@@ -223,7 +223,7 @@ export class login {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = [];
+      let params = undefined;
       params = params ? params : [];
       bh.result = await new GenericRDBMSOperations().executeSQL(
         connectionName,

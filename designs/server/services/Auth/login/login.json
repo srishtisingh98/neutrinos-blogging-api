@@ -30,7 +30,6 @@
         "acceptFileUpload": false,
         "useDataModel": false,
         "dataModelIsArray": false,
-        "uploadFileOptions": "",
         "erd": "",
         "erdName": "",
         "entity": "",
@@ -64,8 +63,7 @@
         "__n_excludedFromValidation__": {},
         "generateNext": true,
         "serviceName": "login",
-        "functionName": "sd_g5pd4g03nn2JTTIm",
-        "generated": false
+        "functionName": "sd_g5pd4g03nn2JTTIm"
     },
     {
         "id": "sd_CTTz0YA53Te8RSPY",
@@ -77,8 +75,8 @@
         "script": "bh.query = 'SELECT CASE WHEN EXISTS (SELECT 1 FROM \"User\" WHERE username = $1 OR useremail =$1 AND userpassword = $2) THEN true ELSE false END AS result';\nbh.params = [\n    bh.input.body.username,\n    bh.input.body.user_password\n]\nconsole.log(bh.params);",
         "functionName": "sd_CTTz0YA53Te8RSPY",
         "category": "Function",
-        "x": 485,
-        "y": 180,
+        "x": 545,
+        "y": 120,
         "wires": [
             [
                 "sd_GTozqv4sBOMcJT90"
@@ -99,8 +97,8 @@
         "script": "console.log(bh.result[0].result);\nif(bh.result[0].result === false){\n    bh.input.status = false;\n    bh.input.message = 'Userdata is already Added'\n}else{\n    bh.input.status = true;\n}\n",
         "functionName": "sd_R7UGCUg4fGypa2ru",
         "category": "Function",
-        "x": 725,
-        "y": 180,
+        "x": 785,
+        "y": 120,
         "wires": [
             [
                 "sd_pBRK3i6x9crXxPaT"
@@ -164,8 +162,8 @@
         },
         "functionName": "sd_Ez6tKXaJO5ENA73J",
         "category": "HTTP",
-        "x": 1005,
-        "y": 140,
+        "x": 1065,
+        "y": 80,
         "wires": [],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -210,8 +208,8 @@
         "accept_bh": false,
         "functionName": "validatelogin",
         "category": "General",
-        "x": 105,
-        "y": 440,
+        "x": 125,
+        "y": 360,
         "wires": [
             [
                 "sd_80HEVPQ0ol3LMDIH"
@@ -219,8 +217,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "login",
-        "generated": false
+        "serviceName": "login"
     },
     {
         "id": "sd_80HEVPQ0ol3LMDIH",
@@ -232,8 +229,8 @@
         "script": "console.log('body',bh.input.body);\n// if(!bh.input.name){\n//     bh.input.status = false;\n//     bh.input.message = 'Name is required';\n// }else if(!bh.input.password){\n//     bh.input.status = false;\n//     bh.input.message = 'Password is required';\n// }else{\n    bh.input.status = true\n// }",
         "functionName": "sd_80HEVPQ0ol3LMDIH",
         "category": "Function",
-        "x": 265,
-        "y": 440,
+        "x": 305,
+        "y": 360,
         "wires": [
             []
         ],
@@ -265,8 +262,8 @@
         "outputs": 2,
         "functionName": "sd_pBRK3i6x9crXxPaT",
         "category": "Function",
-        "x": 825,
-        "y": 180,
+        "x": 885,
+        "y": 120,
         "wires": [
             [
                 "sd_Ez6tKXaJO5ENA73J"
@@ -324,8 +321,8 @@
         },
         "functionName": "sd_5nwZJHtPvN3D9Ict",
         "category": "HTTP",
-        "x": 1005,
-        "y": 240,
+        "x": 1065,
+        "y": 180,
         "wires": [],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -340,6 +337,7 @@
         "nodeType": "flow",
         "name": "",
         "databaseConfig": "sd_C9OeZH1l3ceoDI6p",
+        "queryType": "",
         "resultMap": {
             "type": "bh",
             "value": "result"
@@ -352,11 +350,12 @@
         "inputs": 1,
         "outputs": 1,
         "params": [],
+        "paramMappingObj": {},
         "dbType": "postgres",
         "functionName": "sd_GTozqv4sBOMcJT90",
         "category": "Storage",
-        "x": 605,
-        "y": 180,
+        "x": 665,
+        "y": 120,
         "wires": [
             [
                 "sd_R7UGCUg4fGypa2ru"
